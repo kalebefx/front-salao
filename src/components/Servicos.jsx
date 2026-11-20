@@ -11,35 +11,35 @@ const SERVICOS = [
 
 export default function Servicos() {
   return (
-    <section id="servicos" className="bg-cream py-20 sm:py-28 px-6">
+    <section id="servicos" className="bg-canvas py-20 sm:py-28 px-6">
       <div className="max-w-5xl mx-auto">
-        {/* Cabeçalho da seção */}
         <div className="text-center mb-14">
-          <span className="font-display italic text-gold text-lg">Serviços</span>
-          <h2 className="mt-2 text-2xl sm:text-3xl text-forest font-medium">
+          <span className="italic font-light text-ink text-lg">Serviços</span>
+          <h2 className="mt-2 text-2xl sm:text-3xl text-ink font-medium tracking-[-0.02em]">
             Tudo que você precisa para se sentir incrível
           </h2>
         </div>
 
-        {/* Grid de cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {SERVICOS.map((servico) => (
             <div
               key={servico.nome}
-              className="group bg-white border border-forest/10 rounded-2xl p-6 flex flex-col gap-3 hover:border-gold/60 hover:shadow-lg hover:shadow-forest/5 transition-all"
+              className="group bg-white border border-line rounded-[10px] p-6 flex flex-col gap-3 transition-all hover:border-ink/30 hover:shadow-[0_16px_40px_-28px_rgba(28,49,18,0.7)]"
             >
-              <h3 className="text-lg font-medium text-forest">{servico.nome}</h3>
+              <h3 className="text-lg font-medium text-ink">{servico.nome}</h3>
 
               <div className="flex items-center justify-between text-sm">
-                <span className="text-gold font-semibold text-base">{servico.preco}</span>
-                <span className="text-studio-charcoal/50">{servico.duracao}</span>
+                <span className="text-ink font-semibold text-base">{servico.preco}</span>
+                <span className="rounded-full bg-cream px-2.5 py-1 text-xs font-medium text-muted">
+                  {servico.duracao}
+                </span>
               </div>
 
               <a
                 href={buildWhatsappLink(`Olá! Gostaria de agendar: ${servico.nome}.`)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 text-sm text-forest font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all"
+                className="mt-2 text-sm text-ink font-medium inline-flex items-center gap-1 group-hover:gap-2 transition-all"
               >
                 Agendar <span aria-hidden="true">→</span>
               </a>

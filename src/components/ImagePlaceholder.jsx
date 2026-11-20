@@ -5,17 +5,26 @@ import { IconPhoto } from '@tabler/icons-react'
  *
  * Troque pelo conteúdo real assim que tiver as fotos, por exemplo:
  *   <img src="/images/hero.jpg" alt="Salão Eula Moraes Studio" className={className} />
- *
- * O prop `label` é só uma dica visual de qual foto vai naquele lugar
- * (ex: "Foto do hero — lavatório") e não aparece no site final.
  */
-export default function ImagePlaceholder({ label, className = '' }) {
+export default function ImagePlaceholder({ label, className = '', silent = false }) {
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-2 bg-studio-charcoal/10 text-studio-charcoal/40 border border-dashed border-studio-charcoal/20 ${className}`}
+      className={`relative overflow-hidden bg-[linear-gradient(160deg,#e7eee4_0%,#f7f1dc_48%,#e4ebe1_100%)] text-muted ${className}`}
     >
-      <IconPhoto size={28} stroke={1.5} />
-      {label && <span className="text-xs tracking-wide text-center px-4">{label}</span>}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-70"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle at 20% 20%, rgba(28,49,18,0.08), transparent 42%), radial-gradient(circle at 80% 70%, rgba(247,241,220,0.9), transparent 36%)',
+        }}
+      />
+      {!silent && (
+        <div className="relative flex h-full flex-col items-center justify-center gap-2 px-4 text-center">
+          <IconPhoto size={26} stroke={1.4} />
+          {label && <span className="max-w-[16rem] text-[11px] font-medium tracking-[0.14em] uppercase">{label}</span>}
+        </div>
+      )}
     </div>
   )
 }

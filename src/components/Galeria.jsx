@@ -1,6 +1,5 @@
 import ImagePlaceholder from './ImagePlaceholder'
 
-// 6 espaços de foto — troque cada label pela foto real depois
 const FOTOS = [
   'Foto 1 — trabalho em destaque',
   'Foto 2 — ambiente do studio',
@@ -15,18 +14,18 @@ export default function Galeria() {
     <section className="bg-white py-20 sm:py-28 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-14">
-          <span className="font-display italic text-gold text-lg">Galeria</span>
-          <h2 className="mt-2 text-2xl sm:text-3xl text-forest font-medium">
+          <span className="italic font-light text-ink text-lg">Galeria</span>
+          <h2 className="mt-2 text-2xl sm:text-3xl text-ink font-medium tracking-[-0.02em]">
             Alguns dos nossos trabalhos
           </h2>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-          {FOTOS.map((label, i) => (
+          {FOTOS.map((label) => (
             <ImagePlaceholder
-              key={i}
+              key={label}
               label={label}
-              className="aspect-square rounded-xl"
+              className="aspect-square rounded-[10px] border border-line"
             />
           ))}
         </div>

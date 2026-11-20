@@ -4,26 +4,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        forest: {
-          DEFAULT: '#2a3d1e', // verde escuro — cor primária
-          light: '#3d5730',
+        ink: {
+          DEFAULT: '#1c3112',
+          soft: '#2c4a22',
         },
-        gold: {
-          DEFAULT: '#C8943A', // dourado — cor secundária
-          light: '#e0b46a',
-          dark: '#a87729',
-        },
-        cream: '#fdf9f4', // fundo claro
-        studio: {
-          black: '#151310', // fundo escuro do hero
-          charcoal: '#1e1b17',
-        },
+        muted: '#5a6854',
+        canvas: '#f3f4f2',
+        cream: '#f7f1dc',
+        line: '#d5ddd2',
       },
       fontFamily: {
-        // Corpo / UI: pedido explícito do briefing
-        sans: ['"Segoe UI"', 'system-ui', 'sans-serif'],
-        // Display elegante com itálico, conforme a referência visual do hero
-        display: ['"Playfair Display"', 'serif'],
+        sans: ['Montserrat', 'system-ui', 'sans-serif'],
+      },
+      borderRadius: {
+        card: '10px',
       },
     },
   },

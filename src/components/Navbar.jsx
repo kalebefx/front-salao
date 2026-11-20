@@ -15,32 +15,31 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
-    window.addEventListener('scroll', onScroll)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
-        scrolled ? 'bg-studio-black/95 shadow-lg shadow-black/20' : 'bg-transparent'
+        scrolled || open ? 'bg-ink/95 backdrop-blur-sm' : 'bg-transparent'
       }`}
     >
       <nav className="max-w-6xl mx-auto flex items-center justify-between px-5 sm:px-8 py-4">
-        {/* Logo / monograma */}
         <a href="#inicio" className="flex flex-col items-center leading-none shrink-0">
-          <span className="font-display italic text-xl text-gold tracking-wide">EM</span>
-          <span className="text-[9px] tracking-[0.25em] text-white/80 uppercase mt-0.5">
+          <span className="font-light italic text-[1.35rem] text-cream tracking-wide">EM</span>
+          <span className="text-[9px] tracking-[0.28em] text-cream/75 uppercase mt-1">
             Eula Moraes
           </span>
         </a>
 
-        {/* Links — desktop */}
         <ul className="hidden md:flex items-center gap-9">
           {LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm text-white/85 hover:text-gold transition-colors"
+                className="text-sm font-medium text-cream/85 hover:text-cream transition-colors"
               >
                 {link.label}
               </a>
@@ -48,21 +47,19 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* CTA — desktop */}
         <a
           href={buildWhatsappLink()}
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center rounded-full bg-gold hover:bg-gold-light text-studio-black text-sm font-medium px-5 py-2.5 transition-colors"
+          className="hidden md:inline-flex items-center rounded-[10px] bg-cream text-ink text-sm font-medium px-5 py-2.5 transition-colors hover:bg-white"
         >
           Agendar
         </a>
 
-        {/* Botão menu — mobile */}
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="md:hidden text-white p-1"
+          className="md:hidden text-cream p-1"
           aria-label={open ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={open}
         >
@@ -70,16 +67,15 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Menu — mobile */}
       {open && (
-        <div className="md:hidden bg-studio-black/98 border-t border-white/10 px-5 pb-6 pt-2">
+        <div className="md:hidden border-t border-cream/15 px-5 pb-6 pt-2">
           <ul className="flex flex-col gap-4">
             {LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="text-white/90 text-base"
+                  className="text-cream/90 text-base"
                 >
                   {link.label}
                 </a>
@@ -90,7 +86,7 @@ export default function Navbar() {
             href={buildWhatsappLink()}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-flex w-full justify-center items-center rounded-full bg-gold text-studio-black text-sm font-medium px-5 py-3"
+            className="mt-5 inline-flex w-full justify-center items-center rounded-[10px] bg-cream text-ink text-sm font-medium px-5 py-3"
           >
             Agendar
           </a>

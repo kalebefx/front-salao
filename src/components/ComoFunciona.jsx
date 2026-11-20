@@ -23,11 +23,11 @@ const PASSOS = [
 
 export default function ComoFunciona() {
   return (
-    <section className="bg-cream py-20 sm:py-28 px-6">
+    <section className="bg-canvas py-20 sm:py-28 px-6">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-14">
-          <span className="font-display italic text-gold text-lg">Como funciona</span>
-          <h2 className="mt-2 text-2xl sm:text-3xl text-forest font-medium">
+          <span className="italic font-light text-ink text-lg">Como funciona</span>
+          <h2 className="mt-2 text-2xl sm:text-3xl text-ink font-medium tracking-[-0.02em]">
             Agendar é simples assim
           </h2>
         </div>
@@ -35,14 +35,14 @@ export default function ComoFunciona() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-6">
           {PASSOS.map(({ numero, icone: Icone, titulo, descricao }) => (
             <div key={numero} className="flex flex-col items-center text-center gap-3">
-              <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-forest text-gold">
+              <div className="relative flex items-center justify-center w-16 h-16 rounded-full bg-ink text-cream">
                 <Icone size={26} stroke={1.6} />
-                <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-gold text-studio-black text-xs font-semibold flex items-center justify-center">
+                <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-cream text-ink text-[10px] font-semibold flex items-center justify-center">
                   {numero}
                 </span>
               </div>
-              <h3 className="text-forest font-medium text-base mt-1">{titulo}</h3>
-              <p className="text-studio-charcoal/65 text-sm max-w-[220px]">{descricao}</p>
+              <h3 className="text-ink font-medium text-base mt-1">{titulo}</h3>
+              <p className="text-muted text-sm max-w-[220px] leading-relaxed">{descricao}</p>
             </div>
           ))}
         </div>

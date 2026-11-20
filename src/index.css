@@ -7,13 +7,12 @@ html {
 }
 
 body {
-  @apply bg-cream text-studio-charcoal font-sans antialiased;
+  @apply bg-canvas text-ink font-sans antialiased;
 }
 
-/* Foco de teclado visível — acessibilidade */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #C8943A;
+  outline: 2px solid #1c3112;
   outline-offset: 3px;
 }
 
